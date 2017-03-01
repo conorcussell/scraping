@@ -21,8 +21,8 @@ function getRecipe(url) {
       var $ = cheerio.load(html);
 
       var name = $('.single-recipe-details h1').text();
-      var ingredients = $('.ingred-list').text();
-      var method = $('.instructions-wrapper').text();
+      var ingredients = $('.ingred-list').text().replace(/  +/g, ' ');
+      var method = $('.instructions-wrapper').text().replace(/  +/g, ' ');
 
       var recipe = {
         name: name,
